@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Stroke_Prediction</title>
+  </head>
+  <body style="background: #BDCEE5">
+    <div class="container">
+      <h1>Enter Your Details For Predict Stroke Disease Risk ! </h1>
+      <hr>
+      <form action="/stroke_predict" method="post">
+        {% csrf_token %}
+        <br>
+        <br>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <label for="gender">gender</label>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    {% comment %} <input type="text" class="form-control" id="gender" name="gender" placeholder="gender"> {% endcomment %}
+                    <select name="gender" id="gender" style="width:100%; height:40px; border-radius:10px; background:white;">
+                        <option value="0">Male</option>
+                        <option value="1">Femal</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <label for="age">Age</label>
+                </div>  
+                <div class="col-lg-8 col-md-8">
+                    <input type="number" class="form-control" id="age" name="age" placeholder="Enter your Age">
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <label for="hypertension">hypertension</label>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    {% comment %} <input type="text" class="form-control" id="hypertension" name="hypertension" placeholder="1 for Yes, 0 for No"> {% endcomment %}
+                    <select name="hypertension" id="hypertension" style="width:100%; height:40px; border-radius:10px; background:white;">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <label for="heart_disease">heart_disease</label>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    {% comment %} <input type="text" class="form-control" id="heart_disease" name="heart_disease" placeholder="1 for Yes, 0 for No"> {% endcomment %}
+                    <select name="heart_disease" id="heart_disease" style="width:100%; height:40px; border-radius:10px; background:white;">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <label for="ever_married">ever_married</label>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    {% comment %} <input type="text" class="form-control" id="ever_married" name="ever_married" placeholder="1 for Yes, 0 for No"> {% endcomment %}
+                    <select name="ever_married" id="ever_married" style="width:100%; height:40px; border-radius:10px; background:white;">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <label for="work_type">work_type</label>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    {% comment %} <input type="text" class="form-control" id="work_type" name="work_type" placeholder="0 for Govn Job, 1 for Never_worked, 2 for Private, 3 for Self-employed, 4 for children"> {% endcomment %}
+                    <select name="work_type" id="work_type" style="width:100%; height:40px; border-radius:10px; background:white;">
+                        <option value="0">Gov. job</option>
+                        <option value="1">Never worked</option>
+                        <option value="2">Private Job</option>
+                        <option value="3">Self Employeed</option>
+                        <option value="4">Children</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <label for="avg_glucose_level">avg_glucose_level</label>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    <input type="number" class="form-control" id="avg_glucose_level" name="avg_glucose_level" placeholder="avg_glucose_level">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <label for="smoking_status">smoking_status</label>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    {% comment %} <input type="text" class="form-control" id="smoking_status" name="smoking_status" placeholder="0 for Unknown, 1 for formerly smoked, 2 for never smoked, 3 for smokes"> {% endcomment %}
+                    <select name="smoking_status" id="smoking_status" style="width:100%; height:40px; border-radius:10px; background:white;">
+                        <option value="0">Unknown</option>
+                        <option value="1">Formerly smoked</option>
+                        <option value="2">Never Smoked</option>
+                        <option value="3">Smokes</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            
+            <br>
+            <br>
+            <center>
+                <button type="submit" class="btn btn-dark" value="submit">Submit</button>
+            </center>
+    </form>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
